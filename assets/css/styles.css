@@ -1,0 +1,233 @@
+@import url(reset.css);
+
+:root{
+    --couleur-base: #27293A;
+    --couleur-foncee: #3D4258;
+    --couleur-texte: #CFE4D5;
+    --couleur-accent-1:#CE4B64;
+    --couleur-accent-2:#E1DAA0;
+    --couleur-accent-3:#6FA0A4;
+    
+    --texte-p:1em;
+    --texte-h1:2em;
+    --texte-h2: 1.5em;
+
+    --espace-top: 1em
+}
+
+html, body{
+    background-color: var(--couleur-base);
+    color: var(--couleur-texte);
+    scroll-behavior: smooth;
+
+    scroll-padding: 10rem;
+    
+}
+
+h1{
+    font-size: var(--texte-h1);
+    text-align: center;
+    padding-top: var(--espace-top);
+}
+
+h2{
+    font-size: var(--texte-h2);
+    text-align: center;
+    padding-top: var(--espace-top);
+    padding-bottom: var(--espace-top);
+    
+}
+
+p{
+    font-size: var(--texte-p);
+}
+
+a{
+    color: var(--couleur-texte);
+    cursor: pointer;
+}
+    
+section, article{
+    border: 2px solid red;
+    min-height: 100vh;
+    scroll-snap-align:start;
+}
+
+header{
+    top: 0;
+   position: sticky; 
+   z-index: 10;
+}
+
+nav{
+    background-color: var(--couleur-accent-3);
+    height: 7rem;
+    width: 100%;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+video{
+    cursor: pointer;
+    height: 70%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+/*tableau*/
+table{
+    background-color: var(--couleur-foncee);
+    width: 90%;
+    height: 80%;
+    border: 2px solid var(--couleur-base); 
+    margin: 0 auto;
+    
+    background-image: url(../images/7mSqO-sYvxV22xxZTdTp7vvj4SDkbIqQzphakadXiEI.webp);
+    background-position: center;
+}
+
+thead, tfoot{
+    background-color: #6FA0A4;
+}
+
+th, tfoot td{
+ padding: 1em;
+ text-align: center;
+}
+
+th, td{
+    border: 2px solid var(--couleur-base);
+    width: 15%;
+    text-align: center;
+}
+
+td{
+    height: 30%;
+    vertical-align: middle;
+}
+
+
+/* Form  */
+
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: auto;
+    border: 2px solid var(--couleur-accent-3);
+    accent-color: var(--couleur-accent-2);
+    padding: 2rem;
+    height: 100%;
+}
+
+form input{
+    display: flex;
+    width: 100%;
+    border: none;
+}
+
+form input + .message-erreur{
+    display: none;
+}
+
+form input:invalid + .message-erreur{
+    display: block;
+    color: var(--couleur-accent-1);
+}
+
+form input:not([name="choix"]):valid, form select:valid, form textarea:valid{
+    border: 2px solid var(--couleur-accent-2);
+    box-shadow: 0 0 1px 1px var(--couleur-accent-2);
+}
+/* 
+form input:invalid,input:not(.choix), form select:invalid, form textarea:invalid{
+    border: 2px solid var(--couleur-accent-1);
+    box-shadow: 0 0 1px 1px var(--couleur-accent-1);
+}
+
+form input:focus,input:not(.choix), form select:focus , form textarea:focus{
+    border: 5px solid var(--couleur-accent-2);
+    box-shadow: 0 0 1px 1px var(--couleur-accent-1);
+} */
+
+form .input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; 
+    padding: 0.5rem; 
+}
+
+form .btn-form{
+    display: flex;
+    justify-content: center;
+    padding:1rem;
+}
+
+/* form .btn-form input{
+    width: 7rem;
+    padding: 1rem; 
+    border-radius:20%;
+    text-align:center;
+} */
+
+.acceuil{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.galerie{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 2rem;
+}
+
+.galerie img{
+    max-width: 201px;
+    max-height: 251px;
+    flex-basis: calc(33% - (2rem * 2 / 3));
+}
+
+.inscription{
+    background-image: url(../images/personnage.jpg);
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.pied-de-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around ;
+}
+
+.pied-de-page ul{
+    display: flex;
+    gap: 1rem;
+}
+
+.pied-de-page ul img{
+    height: 5em;
+    filter: saturate(0%);
+    transition: all ease-in-out 250ms;
+}
+
+.pied-de-page ul img:hover{
+    filter: saturate(100%);
+}
+
+.pied-de-page .jsp{
+    display: flex;
+}

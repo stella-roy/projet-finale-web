@@ -1,9 +1,11 @@
 @import url(reset.css);
 @import url(../fonts/Arcane\ Nine.otf);
+@import url(../fonts/friz-quadrata-regular-os-5870333951e7c.ttf);
 
 :root{
     --couleur-base: #27293A;
     --couleur-foncee: #3D4258;
+    --couleur-foncee-2: #6f7280;
     --couleur-texte: #CFE4D5;
     --couleur-texte-2: #aeb3af;
     --couleur-accent-1:#CE4B64;
@@ -11,42 +13,43 @@
     --couleur-accent-3:#6FA0A4;
 
     --police-principale: "Arcane Nine" ;
+    --police-secondaire:"Friz quadrata";
     
     --texte-p:1em;
     --texte-h1:2.5em;
     --texte-h2: 2em;
-    --text-h3:1.5;
+    --text-h3:1.5em;
 
     --espace-top: 1em
 }
 
 html, body{
     background-color: var(--couleur-base);
-    color: var(--couleur-texte);
+    color: var(--couleur-texte); 
     scroll-behavior: smooth;
 
-    scroll-padding: 10rem;
+    scroll-padding: 5rem; 
 
     font-family: var(--police-principale) ;
-    
 }
 
 h1{
     font-size: var(--texte-h1);
     text-align: center;
-    padding-top: var(--espace-top);
+    padding: var(--espace-top); 
+    
 }
 
 h2{
     font-size: var(--texte-h2);
     text-align: center;
-    padding-top: var(--espace-top);
-    padding-bottom: var(--espace-top);
-    
+    padding: var(--espace-top); 
 }
 
 h3{
     font-size: var(--text-h3);
+    text-align: center;
+    padding: var(--espace-top);
 }
 
 p{
@@ -54,21 +57,19 @@ p{
 }
 
 a{
-    color: var(--couleur-texte);
+    color: var(--couleur-texte); 
     cursor: pointer;
+}
+
+hr{
+    height: 1px;
+    background-color: white;
 }
     
 section, article{
-    border: 2px solid red;
-    min-height: 100vh;
-    scroll-snap-align:start;
-}
-
-article{
-    background-image: url(../images/jixn\ vs\ vi.webp);
-    background-repeat: none;
-    background-position: center;
-    background-size: cover;
+    /* border: 2px solid red; */
+    min-height: 100vh; 
+    scroll-snap-type: y proximity;
 }
 
 header{
@@ -78,8 +79,8 @@ header{
 }
 
 nav{
-    background-color: var(--couleur-accent-3);
-    height: 7rem;
+    background-color: var(--couleur-accent-3); 
+    height: 5rem; 
     width: 100%;
 }
 
@@ -90,42 +91,69 @@ nav ul{
     height: 100%;
 }
 
-/* nav ul li a:hover{
+nav ul li a{
     color: var(--couleur-foncee);
-} */
+}
 
 nav ul:has(li:hover){
     li:hover a{
         color: var(--couleur-base);
     } 
     li:not(:hover) a{
-        color: var(--couleur-texte-2);
+        color: var(--couleur-foncee-2);
     }
 }
-
 
 video{
     cursor: pointer;
     width: 80%;
-    height: 80%;
     display: flex;
     margin: auto auto;
-
-    box-shadow: 10px 0 30px 3px black;
+    padding: 3rem;
 }
 
+article{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(to right, #27293a3b 50%, #27293a3b 50%),  url(../images/jixn\ vs\ vi.webp);
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
+}
+
+article div{
+    width: 33%;
+    height: 100%;
+}
+
+article img{
+    height: 30em;
+    padding: 3em;
+    filter: brightness(50%);
+    transition: all ease-in-out 250ms;
+}
+
+article img:hover{
+    filter: brightness(100%);
+    height: 35em;
+}
+
+article p{
+    padding: 7em;
+    text-align: center;
+    font-family: var(--police-secondaire);
+}
 
 /*tableau*/
 table{
     background-color: var(--couleur-foncee);
     width: 90%;
-    height: 100%;
     border: 2px solid var(--couleur-base); 
     margin: 0 auto;
-    
-    background-image: url(../images/7mSqO-sYvxV22xxZTdTp7vvj4SDkbIqQzphakadXiEI.webp);
+    background-image: url(../images/jinx\ workshop.webp);
     background-position: center;
-
     box-shadow: 10px 0 30px 3px black;
 }
 
@@ -133,8 +161,12 @@ thead, tfoot{
     background-color: #6FA0A4;
 }
 
+tbody td{
+    height: 9rem;
+}
+
 th, tfoot td{
- padding: 1em;
+ padding: 1em; 
  text-align: center;
 }
 
@@ -144,8 +176,11 @@ th, td{
     text-align: center;
 }
 
+tfoot td{
+    height: 5rem;
+}
+
 td{
-    height: 30%;
     vertical-align: middle;
 }
 
@@ -159,8 +194,7 @@ form{
     margin: auto;
     border: 2px solid var(--couleur-accent-3);
     accent-color: var(--couleur-accent-2);
-    padding: 2rem;
-    height: 100%;
+    padding: 2rem; 
 }
 
 form input{
@@ -169,8 +203,13 @@ form input{
     border: none;
 }
 
+form p{
+    margin-bottom: 0.5rem;
+}
+
 form input + .message-erreur{
     display: none;
+    font-family: var(--police-secondaire);
 }
 
 form input:invalid + .message-erreur{
@@ -200,18 +239,23 @@ form .input-group{
     padding: 0.5rem; 
 }
 
+form .choix {
+    padding: 0.5rem;
+}
+
 form .btn-form{
     display: flex;
     justify-content: center;
     padding:1rem;
 }
 
-form .btn-form input{
+form .btn-form>input{
     width: 7rem;
     padding: 1rem; 
     border-radius:20%;
     text-align:center;
 }
+
 
 .acceuil{
     display: flex;
@@ -220,29 +264,38 @@ form .btn-form input{
     align-items: center;
 }
 
-
-
 .galerie{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    gap: 2rem;
-    padding: 15rem;
+    gap: 5rem;
+    padding: 10rem;  
 }
 
 .galerie img{
-    flex-basis: calc(33% - (2rem * 2 / 3)); 
-    height:20%;
+    max-height: fit-content;
+    flex-basis: calc(33% - (5rem * 2 / 3)); 
+    cursor: pointer;
+    transition: all ease-in-out 250ms;
+}
+
+.galerie:has(img:hover){
+    img:hover{
+        box-shadow: 4px 4px 10px 4px var(--couleur-accent-3);
+    }
+    img:not(:hover){
+        filter: saturate(0%); 
+        filter:brightness(60%);
+    }
 }
 
 .inscription{
-    background: url(../images/personnage.jpg);
+    background: linear-gradient(to right, #27293a69 50%, #27293a69 50%),  url(../images/personnage.jpg);
     background-repeat: none;
     background-position: center;
     background-size: cover;
 }
-
 
 .pied-de-page{
     display: flex;
@@ -257,7 +310,7 @@ form .btn-form input{
 }
 
 .pied-de-page ul img{
-    height: 5em;
+    height: 4em;
     filter: saturate(0%);
     transition: all ease-in-out 250ms;
 }
@@ -266,6 +319,18 @@ form .btn-form input{
     filter: saturate(100%);
 }
 
-.pied-de-page .jsp{
-    display: flex;;
+
+.pied-de-page .description-departement{
+    width: 25%;
+    text-align: center;
+}
+
+.pied-de-page .description-departement p{
+    font-family: var(--police-secondaire);
+}
+
+.pied-de-page .liens-imp ul{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }

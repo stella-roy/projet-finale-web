@@ -118,8 +118,8 @@ article{
     justify-content: center;
 
     background: linear-gradient(to right, #27293a3b 50%, #27293a3b 50%),  url(../images/jixn\ vs\ vi.webp);
-    background-repeat: none;
     background-position: center;
+    background-repeat:no-repeat;
     background-size: cover;
 }
 
@@ -292,7 +292,7 @@ form .btn-form>input{
 
 .inscription{
     background: linear-gradient(to right, #27293a69 50%, #27293a69 50%),  url(../images/personnage.jpg);
-    background-repeat: none;
+    background-repeat:no-repeat;
     background-position: center;
     background-size: cover;
 }

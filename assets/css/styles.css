@@ -1,16 +1,21 @@
 @import url(reset.css);
+@import url(../fonts/Arcane\ Nine.otf);
 
 :root{
     --couleur-base: #27293A;
     --couleur-foncee: #3D4258;
     --couleur-texte: #CFE4D5;
+    --couleur-texte-2: #aeb3af;
     --couleur-accent-1:#CE4B64;
     --couleur-accent-2:#E1DAA0;
     --couleur-accent-3:#6FA0A4;
+
+    --police-principale: "Arcane Nine" ;
     
     --texte-p:1em;
-    --texte-h1:2em;
-    --texte-h2: 1.5em;
+    --texte-h1:2.5em;
+    --texte-h2: 2em;
+    --text-h3:1.5;
 
     --espace-top: 1em
 }
@@ -21,6 +26,8 @@ html, body{
     scroll-behavior: smooth;
 
     scroll-padding: 10rem;
+
+    font-family: var(--police-principale) ;
     
 }
 
@@ -38,6 +45,10 @@ h2{
     
 }
 
+h3{
+    font-size: var(--text-h3);
+}
+
 p{
     font-size: var(--texte-p);
 }
@@ -51,6 +62,13 @@ section, article{
     border: 2px solid red;
     min-height: 100vh;
     scroll-snap-align:start;
+}
+
+article{
+    background-image: url(../images/jixn\ vs\ vi.webp);
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
 }
 
 header{
@@ -72,12 +90,28 @@ nav ul{
     height: 100%;
 }
 
+/* nav ul li a:hover{
+    color: var(--couleur-foncee);
+} */
+
+nav ul:has(li:hover){
+    li:hover a{
+        color: var(--couleur-base);
+    } 
+    li:not(:hover) a{
+        color: var(--couleur-texte-2);
+    }
+}
+
+
 video{
     cursor: pointer;
-    height: 70%;
+    width: 80%;
+    height: 80%;
     display: flex;
-    align-content: center;
-    justify-content: center;
+    margin: auto auto;
+
+    box-shadow: 10px 0 30px 3px black;
 }
 
 
@@ -85,12 +119,14 @@ video{
 table{
     background-color: var(--couleur-foncee);
     width: 90%;
-    height: 80%;
+    height: 100%;
     border: 2px solid var(--couleur-base); 
     margin: 0 auto;
     
     background-image: url(../images/7mSqO-sYvxV22xxZTdTp7vvj4SDkbIqQzphakadXiEI.webp);
     background-position: center;
+
+    box-shadow: 10px 0 30px 3px black;
 }
 
 thead, tfoot{
@@ -146,16 +182,16 @@ form input:not([name="choix"]):valid, form select:valid, form textarea:valid{
     border: 2px solid var(--couleur-accent-2);
     box-shadow: 0 0 1px 1px var(--couleur-accent-2);
 }
-/* 
-form input:invalid,input:not(.choix), form select:invalid, form textarea:invalid{
+
+form input:not([name="choix"]):invalid, form select:invalid, form textarea:invalid{
     border: 2px solid var(--couleur-accent-1);
     box-shadow: 0 0 1px 1px var(--couleur-accent-1);
 }
 
-form input:focus,input:not(.choix), form select:focus , form textarea:focus{
+form input:not([name="choix"]):focus, form select:focus , form textarea:focus{
     border: 5px solid var(--couleur-accent-2);
     box-shadow: 0 0 1px 1px var(--couleur-accent-1);
-} */
+}
 
 form .input-group{
     display: flex;
@@ -170,12 +206,12 @@ form .btn-form{
     padding:1rem;
 }
 
-/* form .btn-form input{
+form .btn-form input{
     width: 7rem;
     padding: 1rem; 
     border-radius:20%;
     text-align:center;
-} */
+}
 
 .acceuil{
     display: flex;
@@ -184,22 +220,24 @@ form .btn-form{
     align-items: center;
 }
 
+
+
 .galerie{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     gap: 2rem;
+    padding: 15rem;
 }
 
 .galerie img{
-    max-width: 201px;
-    max-height: 251px;
-    flex-basis: calc(33% - (2rem * 2 / 3));
+    flex-basis: calc(33% - (2rem * 2 / 3)); 
+    height:20%;
 }
 
 .inscription{
-    background-image: url(../images/personnage.jpg);
+    background: url(../images/personnage.jpg);
     background-repeat: none;
     background-position: center;
     background-size: cover;
@@ -229,5 +267,5 @@ form .btn-form{
 }
 
 .pied-de-page .jsp{
-    display: flex;
+    display: flex;;
 }
